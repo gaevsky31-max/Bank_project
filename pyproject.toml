@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "bank-project-mask"
+version = "0.1.0"
+description = "Bank card and account number masking"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.0.0"
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^5.0.0"
+black = "^22.12.0"
+isort = "^5.12.0"
+mypy = "^0.991"
+
+[tool.black]
+line-length = 119
+exclude = '''/(\.git)/'''
+
+[tool.isort]
+line_length = 119
+multi_line_output = 3
+force_single_line = true
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_return_any = true
+exclude = ["venv/"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
