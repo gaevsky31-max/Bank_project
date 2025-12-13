@@ -50,9 +50,12 @@ def get_date(date_info: str) -> str:
         date_info (str): Дата в формате: "2024-03-11T02:26:18.671407"
 
     Returns:
-        str: Дата в формате: "11.03.2024"
-
+        str: Дата в формате: "11.03.2024" или исходная строка при ошибке
     """
-    date_str = date_info.split("T")[0]
-    year, month, day = date_str.split("-")
-    return f"{day}.{month}.{year}"
+    try:
+        date_str = date_info.split("T")[0]
+        year, month, day = date_str.split("-")
+        return f"{day}.{month}.{year}"
+    except (ValueError, IndexError):
+        # Возвращаем исходную строку если не можем распарсить
+        return date_info
