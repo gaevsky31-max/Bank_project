@@ -101,3 +101,21 @@ test_data = [
 flake8 src/           # Проверка стиля кода
 mypy src/             # Проверка типов
 python -m pytest      # Запуск тестов
+
+
+## Модуль generators
+
+Модуль содержит функции-генераторы для эффективной обработки транзакций.
+
+### Функции:
+
+#### `filter_by_currency(transactions, currency="USD")`
+Фильтрует транзакции по заданной валюте и возвращает итератор.
+
+**Пример использования:**
+```python
+from generators import filter_by_currency
+
+usd_transactions = filter_by_currency(transactions, "USD")
+for _ in range(2):
+    print(next(usd_transactions))
