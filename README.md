@@ -127,3 +127,21 @@ def my_function(x, y):
 @log(filename="app.log")
 def another_function(data):
     return process(data)
+
+## Новый функционал
+
+### Работа с JSON-файлом
+
+Модуль `src/utils.py` содержит функцию `read_json_file` для чтения финансовых транзакций из JSON-файла.
+
+### Конвертация валют
+
+Модуль `src/external_api.py` содержит функции:
+- `convert_to_rub` - конвертация суммы транзакции в рубли
+- `get_exchange_rate` - получение курса валют через внешнее API
+
+### Настройка окружения
+
+1. Скопируйте `.env.example` в `.env`
+2. Получите API ключ на https://apilayer.com/exchangerates_data-api
+3. Добавьте ключ в `.env` файл
